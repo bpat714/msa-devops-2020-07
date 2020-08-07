@@ -1,14 +1,18 @@
 
 .MediaCardContainer{
-    max-width: 310px;
+    max-width: 700px;
     margin: auto;
+    font-style: inherit;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .MediaCardImage{
-    height: 200px !important;
-    max-width: 310px;
+    height: 399px !important;
+    max-width: 500px;
 }
 .MediaCardDescription{
-    height: 200px;
+    height: 230px;
     overflow-y: scroll;
     overflow-wrap: break-word;
+    font-style: inherit;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

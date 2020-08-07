@@ -19,9 +19,7 @@ const theme = createMuiTheme({
 
 function App() {
   const [UserInput, setUserInput] = useState<IUserInput>({
-    SearchQuery: "Mars",
-    StartDate: new Date('2014-08-18T21:11:54'),
-    EndDate: new Date('2018-08-18T21:11:54'),
+    SetDate: new Date('2018-08-18T21:11:54')
   });
   function SetUserInput(a: IUserInput) {
     setUserInput(a);    
@@ -30,8 +28,9 @@ function App() {
   return (
     <div className="App" >
       <MuiThemeProvider theme={theme}>
+          <h1> Astronomy Picture of the Day Generator </h1>
           <SearchBar SetUserInput={(a: IUserInput) => SetUserInput(a)}/>
-          <MediaGrid SearchQuery={UserInput.SearchQuery} StartDate={UserInput.StartDate} EndDate={UserInput.EndDate}/>
+          <MediaGrid SetDate={UserInput.SetDate}/>
       </MuiThemeProvider>
     </div>
   );

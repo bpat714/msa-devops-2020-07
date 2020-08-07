@@ -3,44 +3,51 @@ import MediaCard from '../MediaCardComponent/MediaCard';
 import { Grid } from '@material-ui/core';
 import './MediaGrid.css';
 
+
 interface IState {
-    links: any[];
-    data: any[];
+    url: any[];
+    explanation: any[];
 }
+
+interface PhotoState {
+    photo: string | undefined;
+}
+
+interface ExplanationState {
+    explanation: string | undefined;
+}
+
+interface TitleState {
+    title: string | undefined;
+}
+
 interface IMediaGridProps {
-    SearchQuery: (string | null);
-    StartDate: (Date | null);
-    EndDate: (Date | null);
+    SetDate: (Date | null);
 }
+
 function MediaGrid(props: IMediaGridProps) {
-    const [ItemArray, setItemArray] = useState<IState[]>([{ links: [], data: [] }]);
+    const [Photo, setPhoto] = useState<PhotoState> ();
+    const [Explanation, setExplanation] = useState<ExplanationState> ();
+    const [Title, setTitle] = useState<TitleState> ();
 
     useEffect(() => {
-        fetch('https://images-api.nasa.gov/search?media_type=image&q=' + props.SearchQuery + '&year_start=' + props.StartDate?.getFullYear() + '&year_end=' + props.EndDate?.getFullYear())
+        fetch('https://api.nasa.gov/planetary/apod?api_key=' + process.env.REACT_APP_API_KEY + '&date=' + props.SetDate?.getFullYear() + '-'+ props.SetDate?.getMonth() + '-' + props.SetDate?.getDate())
             .then(response => response.json())
             .then(response => {
-                setItemArray(response.collection.items)
+                setPhoto(response.url)
+                setExplanation(response.explanation)
+                setTitle(response.title)
             })
             .catch(() => console.log("it didn't work")
             );
 
-    }, [props.SearchQuery, props.EndDate, props.StartDate]);
+    }, [props.SetDate]);
 
-    var Cards: JSX.Element[] = [];
-    ItemArray.forEach((el: IState, i: Number) => {
-        if (!el || !el.links[0] || !el.data) {
-            return;
-        }
-        Cards.push(
-            <Grid key={"card_"+i} item sm={6} md={4} lg={3} className="MediaGridCard">
-                <MediaCard ImageUrl={el['links'][0]['href']} Description={el["data"][0]['description']} />
-            </Grid>)
-    })
 
     return (
         <div>
             <Grid container spacing={3} className="MediaGridContainer">
-                {Cards}
+                <MediaCard ImageUrl={Photo} Description={Explanation} Title={Title}/>
             </Grid>
         </div>
     )

@@ -1,4 +1,7 @@
 .App {
 max-width: 2000px;
 margin: auto;
+text-align: center;
+font-style: inherit;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
