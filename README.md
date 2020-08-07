@@ -16,3 +16,9 @@ React Web App for browsing NASA images and videos.
 
 ### Description of Build and Release Pipeline
 - To Build the Pipeline I have used a starter pipeline on Azure which contains a YAML file
+- To ensure it also triggers when a commit is added to a branch called "develop" I've added develop under trigger stage
+- Then a script is written to build and deloy the react app
+- To do so it first goes into my-app then runs npm install then npm run build then return out of it
+- then I have added build to archieve folder
+- Then I published build folder to release and delop webapp
+
