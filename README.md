@@ -14,3 +14,5 @@ React Web App for browsing NASA images and videos.
 - alternatively visit https://msa-2020-07.azurewebsites.net/ (note that the implementation is yet to be complete and therefore 
   the website is not able to fetch data using Nasa API due to hidden key 🔑. There is yet work to be done to resolve this issue)
 
+### Description of Build and Release Pipeline
+- To Build the Pipeline I have used a starter pipeline on Azure which contains a YAML file
