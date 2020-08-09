@@ -1,6 +1,6 @@
 # msa-devops-2020-07
 
-React Web App for browsing NASA images and videos.
+React Web App for browsing Astronomy Picture of the Day 
 
 ## Getting started
 
@@ -20,5 +20,6 @@ React Web App for browsing NASA images and videos.
 - Then a script is written to build and deloy the react app
 - To do so it first goes into my-app then runs npm install then npm run build then return out of it
 - then I have added build to archieve folder
-- Then I published build folder to release and delop webapp
+- Then I published build folder to release and deploy the app 
+- Then for the release pipeline I have taken the build artifacts from build pipeline and deloyed it
 
